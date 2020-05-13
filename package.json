@@ -1,0 +1,24 @@
+{
+  "name": "Desafio-app",
+  "version": "1.0.0",
+  "description": "Automation IaC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cirobessa/Desafio-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cirobessa/Desafio-app/issues"
+  },
+  "homepage": "https://github.com/cirobessa/Desafio-app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-persist": "^3.0.5"
+  }
+}
