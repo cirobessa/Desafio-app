@@ -6,6 +6,7 @@ resource "aws_ecs_service" "service_aplicativos" {
   desired_count   = 2  # QUANTIDADE DE CONTAINERS RODANDO
 
 #### ASSOCIADO AO LOAD BALANCER
+  depends_on	     = ["aws_lb_listener.listener"]
   load_balancer {
     target_group_arn = "${aws_lb_target_group.target_group.arn}" # APONTO o target group
     container_name   = "${aws_ecs_task_definition.task_aplicativos.family}"

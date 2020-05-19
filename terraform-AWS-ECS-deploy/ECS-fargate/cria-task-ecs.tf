@@ -4,7 +4,7 @@ resource "aws_ecs_task_definition" "task_aplicativos" {
   [
     {
       "name": "task-aplicativos",
-      "image": "${aws_ecr_repository.cirobessa.repository_url}",
+      "image": "874001116236.dkr.ecr.us-east-1.amazonaws.com/cb-counter",
       "essential": true,
       "portMappings": [
         {
