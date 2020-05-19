@@ -8,12 +8,13 @@ Deploy ambiente e App
 - Configura cluster e redes admin e cni 
 
 
-2 - Ferramente de IaC:
-- Script de Deploy Terraform
-- Monta Repositorio de Codigo no ECR da Amazon
-- Monta ambiente ECS-Fargate
-- Deploy app
-- Show app
-- Destroy app
-- Deploy app
+2 - Ferramente de IaC - Terraform:
+- Deploy com Terraform em cluster Kubernetes Onpremisse 
+- Deploy com Terraform na AWS-ECS-Fargate
+	- Monta Repositorio de Codigo no ECR da Amazon
+	- Monta ambiente ECS-Fargate
+	- Deploy app
+	- Show app
+	- Destroy app
+	- Re-deploy app
 
