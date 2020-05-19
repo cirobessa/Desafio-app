@@ -10,6 +10,8 @@ Deploy ambiente e App
 
 2 - Ferramente de IaC:
 - Script de Deploy Terraform
+- Monta Repositorio de Codigo no ECR da Amazon
+- Monta ambiente ECS-Fargate
 - Deploy app
 - Show app
 - Destroy app
