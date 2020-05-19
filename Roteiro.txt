@@ -1,0 +1,17 @@
+
+
+Deploy ambiente e App
+
+
+1 - Ambiente base Cluster Kubernetes(docker, conteinerd) com 1 node:
+- Scripts de Deploy em ubuntu 18.04, base install, docker, conteinerd, kubernetes set
+- Configura cluster e redes admin e cni 
+
+
+2 - Ferramente de IaC:
+- Script de Deploy Terraform
+- Deploy app
+- Show app
+- Destroy app
+- Deploy app
+

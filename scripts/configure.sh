@@ -77,5 +77,5 @@ echo "==================
 ====================="
 
 
-./deploy-mysql-backend-front-loadBalance.sh
+./install-terraform.sh
 

@@ -1,6 +1,17 @@
 #!/bin/bash
 
 
+### VARIAVEIS Do script
+
+## IP do cluster
+IP_CLUSTER=172.16.48.163
+
+## RANGE IP dos PODs
+IP_RANGE=10.20.30.0/24
+
+## primeiro IP FLANNEL
+IP_FLANNEL=10.20.30.1/24
+
 
 # Retira SWAP
 
@@ -35,12 +46,13 @@ echo "==================
  SESSAO SOBE CLUSTER KUBEADM
 ====================="
  
- sudo kubeadm init --pod-network-cidr=10.20.30.0/24
+ sudo kubeadm init --pod-network-cidr=$IP_RANGE --apiserver-advertise-address=$IP_CLUSTER
+
 
 
 
  mkdir -p $HOME/.kube
-
+  
  sudo cp -f /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo cp -f /etc/kubernetes/admin.conf $HOME/ 
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -83,11 +95,11 @@ head -c 16 /dev/urandom | shasum -a 256 | cut -d" " -f1 | sudo tee /var/lib/weav
 
 kubectl create secret -n kube-system generic weave-passwd --from-file=/var/lib/weave/weave-passwd
 
-kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')&password-secret=weave-passwd&env.IPALLOC_RANGE=192.168.0.0/24"
+kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')&password-secret=weave-passwd&env.IPALLOC_RANGE=$IP_RANGE "
 
 # Declara as Flannel do cni
-echo "FLANNEL_NETWORK=10.20.0.0/16
-FLANNEL_SUBNET=10.20.30.1/24
+echo "FLANNEL_NETWORK=$IP_RANGE 
+FLANNEL_SUBNET=$IP_FLANNEL
 FLANNEL_MTU=1450
 FLANNEL_IPMASQ=true"  >  /run/flannel/subnet.env 
 
@@ -114,6 +126,7 @@ sudo ufw enable
 
 ### REtira o TAINT para subir no pods no master node
 sudo kubectl taint nodes $HOSTNAME node-role.kubernetes.io/master-
+
 
 
 
